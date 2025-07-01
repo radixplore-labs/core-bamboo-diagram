@@ -15,16 +15,17 @@ def load_and_parse_data(file_path):
     Raises:
         FileNotFoundError: If the file does not exist.
         ValueError: If the file content is empty or headers are missing.
+        Exception: For other file reading errors.
     """
     try:
         with open(file_path, 'r') as f:
             file_content = f.read()
         if not file_content:
-            raise ValueError(f"File content is empty: {file_path}")
+            raise ValueError(f"Error: Input file '{file_path}' is empty.")
     except FileNotFoundError:
-        raise FileNotFoundError(f"Error: File not found at '{file_path}'. Please ensure the file exists.")
+        raise FileNotFoundError(f"Error: Input file not found at '{file_path}'. Please ensure the file exists and the path is correct.")
     except Exception as e:
-        raise Exception(f"Error reading file content: {e}")
+        raise Exception(f"Error reading file content from '{file_path}': {e}")
 
     lines = file_content.strip().split('\n')
 
@@ -34,9 +35,11 @@ def load_and_parse_data(file_path):
             header_line_index = i
             break
     if header_line_index == -1:
-        raise ValueError("H1000 header not found in the file.")
+        raise ValueError("Error: H1000 header (column names) not found in the input file. Please ensure the file format is correct.")
 
     column_names = [col for col in lines[header_line_index].split('\t')[1:] if col.strip()]
+    if not column_names:
+        raise ValueError("Error: No column names found under H1000 header. Check file format.")
 
     data_start_index = -1
     for i in range(header_line_index + 1, len(lines)):
@@ -44,7 +47,7 @@ def load_and_parse_data(file_path):
             data_start_index = i
             break
     if data_start_index == -1:
-        raise ValueError("No data rows (starting with 'D') found after the H1000 header.")
+        raise ValueError("Error: No data rows (starting with 'D') found after the H1000 header. Check file format.")
 
     data_rows = []
     for i in range(data_start_index, len(lines)):
@@ -54,7 +57,10 @@ def load_and_parse_data(file_path):
             if len(row_values) >= len(column_names):
                 data_rows.append(row_values[:len(column_names)])
             else:
-                print(f"Warning: Skipping malformed row at line {i+1}: {line}")
+                print(f"Warning: Skipping malformed row at line {i+1}: '{line.strip()}' - not enough columns.")
+
+    if not data_rows:
+        raise ValueError("Error: No valid data rows found in the input file after parsing.")
 
     return pd.DataFrame(data_rows, columns=column_names)
 
@@ -68,17 +74,27 @@ def clean_and_filter_data(df_raw):
     Returns:
         pd.DataFrame: The cleaned and filtered DataFrame.
     Raises:
-        ValueError: If the DataFrame is empty after filtering.
+        ValueError: If the DataFrame is empty after filtering for essential columns.
     """
     df_cleaned = df_raw.copy()
     numeric_cols = ['FROM', 'TO', 'Ori_Confindence', 'Alpha', 'Beta', 'Dip', 'Dip_Dir']
     for col in numeric_cols:
-        df_cleaned[col] = pd.to_numeric(df_cleaned[col], errors='coerce')
+        if col in df_cleaned.columns: # Check if column exists before converting
+            df_cleaned[col] = pd.to_numeric(df_cleaned[col], errors='coerce')
+        else:
+            print(f"Warning: Numeric column '{col}' not found in data. It might affect plot generation if essential.")
 
-    df_filtered = df_cleaned.dropna(subset=['FROM', 'TO', 'Alpha', 'Ori_Confindence']).copy()
+
+    # Ensure essential columns exist before dropping NaNs
+    essential_cols = ['FROM', 'TO', 'Alpha', 'Ori_Confindence']
+    missing_essential_cols = [col for col in essential_cols if col not in df_cleaned.columns]
+    if missing_essential_cols:
+        raise ValueError(f"Error: Missing essential columns in data: {', '.join(missing_essential_cols)}. Cannot proceed with plotting.")
+
+    df_filtered = df_cleaned.dropna(subset=essential_cols).copy()
 
     if df_filtered.empty:
-        raise ValueError("DataFrame is empty after filtering. No valid data for plotting.")
+        raise ValueError("Error: DataFrame is empty after filtering out rows with missing essential orientation data. No valid data for plotting.")
 
     df_filtered.sort_values(by='FROM', inplace=True)
     df_filtered.reset_index(drop=True, inplace=True)
@@ -128,18 +144,21 @@ def generate_schematic_segments(df_filtered, segment_length=3.0):
             representative_angle_value = None
             angle_source_note = ""
 
+            # Prioritize Dip_Dir from highest confidence features
             high_conf_features_with_dip_dir = features_in_segment[
                 (features_in_segment['Ori_Confindence'] == highest_confidence) & (features_in_segment['Dip_Dir'].notna())
             ]
             if not high_conf_features_with_dip_dir.empty:
                 representative_angle_value = high_conf_features_with_dip_dir.iloc[0]['Dip_Dir']
             else:
+                # Fallback: Any Dip_Dir from any oriented feature (confidence >= 1)
                 any_oriented_feature_with_dip_dir = features_in_segment[
                     (features_in_segment['Ori_Confindence'] >= 1) & (features_in_segment['Dip_Dir'].notna())
                 ]
                 if not any_oriented_feature_with_dip_dir.empty:
                     representative_angle_value = any_oriented_feature_with_dip_dir.iloc[0]['Dip_Dir']
                 else:
+                    # Fallback: Beta angle from highest confidence features (as a proxy for direction)
                     high_conf_features_with_beta = features_in_segment[
                         (features_in_segment['Ori_Confindence'] == highest_confidence) & (features_in_segment['Beta'].notna())
                     ]
@@ -147,6 +166,7 @@ def generate_schematic_segments(df_filtered, segment_length=3.0):
                         representative_angle_value = high_conf_features_with_beta.iloc[0]['Beta']
                         angle_source_note = " (Beta)"
                     else:
+                        # Fallback: Any Beta angle from any oriented feature
                         any_oriented_feature_with_beta = features_in_segment[
                             (features_in_segment['Ori_Confindence'] >= 1) & (features_in_segment['Beta'].notna())
                         ]
@@ -173,8 +193,8 @@ def generate_schematic_segments(df_filtered, segment_length=3.0):
                 alpha_str = f"{feature_row['Alpha']:.0f}°" if pd.notna(feature_row['Alpha']) else "N/A"
                 beta_str = f"{feature_row['Beta']:.0f}°" if pd.notna(feature_row['Beta']) else "N/A"
                 conf_str = f"{feature_row['Ori_Confindence']:.0f}" if pd.notna(feature_row['Ori_Confindence']) else "N/A"
-                contact_type_str = feature_row['ContactType'] if pd.notna(feature_row['ContactType']) else "N/A"
-                comments_str = feature_row['Comments'] if pd.notna(feature_row['Comments']) else ""
+                contact_type_str = feature_row['ContactType'] if 'ContactType' in feature_row and pd.notna(feature_row['ContactType']) else "N/A"
+                comments_str = feature_row['Comments'] if 'Comments' in feature_row and pd.notna(feature_row['Comments']) else ""
 
                 hover_text_details.append(
                     f"  <b>- {feature_row['StrFeature']}</b> at {feature_row['FROM']:.2f}m:<br>"
@@ -200,21 +220,21 @@ def generate_schematic_segments(df_filtered, segment_length=3.0):
         })
     return schematic_segments
 
-def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
+def create_plotly_diagram(schematic_segments, hole_id, segment_length, core_height, row_spacing, max_segments_per_row, segment_width, output_html_path=None):
     """
     Creates and displays an interactive Plotly schematic bamboo diagram.
 
     Args:
         schematic_segments (list): List of dictionaries representing schematic segments.
         hole_id (str): The ID of the drill hole.
+        segment_length (float): Length of each schematic core segment in meters.
+        core_height (float): Visual height of each core cylinder in plot units.
+        row_spacing (float): Vertical spacing between rows of core segments.
+        max_segments_per_row (int): Maximum number of segments to display per horizontal row.
+        segment_width (float): Visual width of each core segment in plot units.
         output_html_path (str, optional): Path to save the interactive HTML plot.
                                           If None, displays in environment.
     """
-    core_height = 1.5
-    segment_width = 7 # Increased width further for more padding
-    row_spacing = 3.5
-    max_segments_per_row = 8
-
     num_rows = int(np.ceil(len(schematic_segments) / max_segments_per_row))
     fig_height_scale_factor = 100
     fig_height = num_rows * fig_height_scale_factor + 100
@@ -226,7 +246,6 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
 
     top_y_coordinate = 0
 
-    # Explicitly initialize current_row and segment_in_row_count here
     current_row = 0
     segment_in_row_count = 0
 
@@ -282,7 +301,7 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
         annotations.append(
             go.layout.Annotation(
                 x=x_start + segment_width / 2,
-                y=y_center + core_height / 2 + 0.40,
+                y=y_center + core_height / 2 + 0.40, # Adjusted y position as per user request
                 text=segment['type'],
                 showarrow=False,
                 font=dict(size=12, color=label_color_top, family="Arial", weight="bold")
@@ -444,23 +463,86 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
         fig.show()
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate an interactive schematic bamboo diagram from drill core data.")
-    parser.add_argument("file_path", type=str, help="Path to the input STRUCTURE-EIS-24PMD0002.txt file.")
-    parser.add_argument("--output", "-o", type=str, help="Optional path to save the interactive HTML plot (e.g., plot.html). If not provided, the plot will be displayed.")
+    parser = argparse.ArgumentParser(
+        description="Generate an interactive schematic bamboo diagram from drill core data. "
+                    "This tool helps visualize structural orientations and data gaps."
+    )
+    parser.add_argument(
+        "file_path",
+        type=str,
+        help="Path to the input drill core data file (e.g., STRUCTURE-EIS-24PMD0002.txt). "
+             "The file should be tab-separated with a 'H1000' header row for column names."
+    )
+    parser.add_argument(
+        "--output", "-o",
+        type=str,
+        help="Optional path to save the interactive HTML plot (e.g., my_plot.html). "
+             "If not provided, the plot will attempt to display in a default browser or environment."
+    )
+    parser.add_argument(
+        "--segment_length", "-sl",
+        type=float,
+        default=3.0,
+        help="Length of each schematic core segment in meters (default: 3.0). "
+             "Adjusts the vertical scale of the 'bamboo' sections."
+    )
+    parser.add_argument(
+        "--core_height", "-ch",
+        type=float,
+        default=1.5, # Updated default value
+        help="Visual height of each core cylinder in plot units (default: 1.5). " # Updated help
+             "Affects the vertical spacing and size of segments."
+    )
+    parser.add_argument(
+        "--row_spacing", "-rs",
+        type=float,
+        default=3.5, # Value remains 3.5
+        help="Vertical spacing between rows of core segments in plot units (default: 3.5). "
+             "Increases or decreases the gap between horizontal rows of 'bamboo'."
+    )
+    parser.add_argument(
+        "--max_segments_per_row", "-mspr",
+        type=int,
+        default=8, # Updated default value
+        help="Maximum number of segments to display per horizontal row (default: 8). " # Updated help
+             "Controls the horizontal layout and overall plot width."
+    )
+    parser.add_argument(
+        "--segment_width", "-sw", # New argument for segment_width
+        type=float,
+        default=7.0, # Updated default value
+        help="Visual width of each core segment in plot units (default: 7.0). "
+             "Controls the horizontal spacing and appearance of segments."
+    )
     args = parser.parse_args()
 
     try:
+        print(f"Loading data from: {args.file_path}")
         df_raw = load_and_parse_data(args.file_path)
+        print("Data loaded successfully. Cleaning and filtering...")
         df_filtered = clean_and_filter_data(df_raw)
         
         # Extract hole ID for the title
         hole_id = df_filtered['HOLE_ID'].iloc[0] if not df_filtered.empty else "Unknown Hole"
+        print(f"Generating schematic segments for Hole: {hole_id}...")
 
-        schematic_segments = generate_schematic_segments(df_filtered)
-        create_plotly_diagram(schematic_segments, hole_id, args.output)
+        schematic_segments = generate_schematic_segments(df_filtered, args.segment_length)
+        print("Creating interactive Plotly diagram...")
+        create_plotly_diagram(
+            schematic_segments,
+            hole_id,
+            args.segment_length,
+            args.core_height,
+            args.row_spacing,
+            args.max_segments_per_row,
+            args.segment_width, # Pass segment_width here
+            args.output
+        )
+        print("Diagram generation complete.")
 
     except (FileNotFoundError, ValueError, Exception) as e:
-        print(f"An error occurred: {e}")
+        print(f"\nAn error occurred during plot generation: {e}")
+        print("\nPlease check your input file, arguments, and ensure all required Python packages are installed (`pip install -r requirements.txt`).")
         exit(1)
 
 if __name__ == "__main__":
