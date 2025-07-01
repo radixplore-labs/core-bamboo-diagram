@@ -1,0 +1,219 @@
+H0002	Version	4															
+H0003	Date_generated																
+H0004	Reporting_period_end_date	30/06/2024															
+H0005	State	WA															
+H0100	Tenement_no/Combind_report_no	E45/5148															
+H0101	Tenement_holder	Antipa Resources Limited															
+H0102	Project_name	Tetris															
+H0106	Tenement_operator	Antipa Minerals Limited															
+H0150	250K_map_sheet_number	SF51-6															
+H0151	100K_map_sheet_number	3455															
+H0152	50K_map_sheet_number	34553															
+H0153	25K_map_sheet_number																
+H0200	Start_date_of_data_acquisition	1/07/2023															
+H0201	End_date_of_data_acquisition	30/06/2024															
+H0202	Data_format	DL4															
+H0203	Number_of_data_records	171															
+H0204	Date_of_metadata_update																
+H0300	Related_data_file																
+H0301	Location_data_file	COLLAR-EIS-24PMD0002.txt															
+H0302	Lithology_data_file	LITHOLOGY-EIS-24PMD0002.txt															
+H0303	Assay_data_file	DHASSAY-EIS-24PMD0002.txt															
+H0304	Survey_data_file	DHSURV-EIS-24PMD0002.txt															
+H0305	SurfGeochem_Data_File	SURFGEOCHEM-EIS-24PMD0002.txt															
+H0307	Lithology_code_file																
+H0308	File verification List																
+H0313	Alteration_data_file	ALTERATION-EIS-24PMD0002.txt															
+H0314	Magsusc_data_file	MAGSUS-EIS-24PMD0002.txt															
+H0315	Vein_data_file	VEIN-EIS-24PMD0002.txt															
+H0316	Recovery_data_file																
+H0317	Weathering_data_file																
+H0318	DHQAQC_data_file																
+H0320	Other event_data_file																
+H0321	Sulphide_data_file																
+H0322	Minz_data_file	MINZ-EIS-24PMD0002.txt															
+H0323	pXRF_data_file																
+H0400	Drill_code	DDH															
+H0401	Drill_contractor																
+H0402	Description																
+H0500	Feature_located	Collar															
+H0501	Geodetic_datum	GDA94															
+H0502	Vertical_datum	AHD															
+H0503	Projection	MGA															
+H0530	Coordinate_system	Projected															
+H0531	Projection_zone	51															
+H0900	Remarks																
+H1000	HOLE_ID	FROM	TO	ContactType	StrFeature	Ori_Confindence	MeasurementType	Alpha	Beta	Gamma	ContactClassification	ContactSubClassification	UpperLithology	LowerLithology	Dip	Dip_Dir	Comments
+H1001		m	m					degrees	degrees	degrees	degrees				degrees	degrees	
+H1004		0.01	0.01					0.01	0.1	0.011					0.01	0.1	
+D	24PMD0002	472.68	472.69	irreg	vf	3		10	0		Vein	Vein	zsa	zsa			small veinlet in metapsammite unit
+D	24PMD0002	476.06	476.07	irreg	bed	3		5	130		Sediment	Interbedding	zsa	zsp			low angle bedding. Sub-parallel to the drilling. Interpreted alpha angle.
+D	24PMD0002	476.86	476.87	flt	vm	3		55	110		Vein	Vein	zsp	zsp			stock work common in this section
+D	24PMD0002	478.44	478.45	irreg	vi	3		15	0		Vein	Vein	zsa	zsa			small veinlet in metapsammite unit
+D	24PMD0002	480.27	480.28	flt	vm	3		55	110		Vein	Vein	zsp	zsp			stock work common in this section
+D	24PMD0002	480.95	480.96	irreg	vi	3		30	310		Vein	Vein	zsp	zsa			irregular cb-qz vein with minor patchy kfs in fracture. Garnet in selvedge
+D	24PMD0002	482.75	482.76	planP	jnt	3		75	95		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	484.89	484.9	undP	jnt	3		60	200		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	486.21	486.22	diff	bed	3		20	140		Sediment	Interbedding	zsa	zsa			interpreted bed
+D	24PMD0002	486.93	486.94	irreg	vi	3		30	20		Vein	Vein	zsp	zsa			irregular cb-qz vein with minor patchy kfs in fracture. Garnet in selvedge
+D	24PMD0002	487.12	487.13	plan	bed	3		10	140		Sediment	Interbedding	zsa	zsp			
+D	24PMD0002	488.72	488.73	irreg	bed	3		5	140		Sediment	Interbedding	zsp	zsa			interpreted bed
+D	24PMD0002	489.38	489.39	planP	jnt	3		75	340		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	494.47	494.48	PlanR	jnt	2		40	0		Sediment	Interbedding	zsp	zsp			jnt related to small fault section with strong stockwork
+D	24PMD0002	496.69	496.7	irreg	vn	2		25	330		Vein	Vein	zsa	zsp			irregular cb-qz vein with minor patchy kfs in fracture. Garnet in selvedge
+D	24PMD0002	498.53	498.54	undS	jnt	2		65	220		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	501.26	501.27	sharp	bed	2		5	140		Sediment	Interbedding	zsp	zsa			interpreted bed. Possible lithological contact between 
+D	24PMD0002	502.07	502.08	sharp	vm	2		30	315		Vein	Vein	zsa	zsp			cb-qz vein with minor patchy kfs in fracture. Garnet in selvedge
+D	24PMD0002	504.74	504.75	irreg	vi	2		5	25		Vein	Vein	zsa	zsa			set of 2mm thickness cb-qz veinlets with hm in selvedge. garnet? With similar alfa and beta.
+D	24PMD0002	507.06	507.07	planP	jnt	2		40	180		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	510.25	510.26	und	vn	2		25	340		Vein	Vein	zsa	zsp			irregular cb-qz vein with minor patchy kfs in fracture. Garnet in selvedge
+D	24PMD0002	514.67	514.68	undR	jnt	2		65	240		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	517.4	517.41	diff	cont	3		30	350		Sediment	Interbedding	zsa	zsa			hm band cont alteration. Possible related to cb veins?
+D	24PMD0002	519.32	519.33	plan	vn	3		80	85		Vein	Vein	zsa	zsa			set of 1mm thickness cb-qz veinlets with hm in selvedge. garnet? With similar alfa and beta.
+D	24PMD0002	520.32	520.33	plan	vn	3		30	310		Vein	Vein	zsa	zsp			cb-qz vein with minor patchy kfs in fracture. Garnet in selvedge
+D	24PMD0002	522.31	522.32	irreg	cont	3		5	300		Sediment	Interbedding	zsa	zsc			top cont pocket limestone unit. Bottom contact is diffuse and irregular
+D	24PMD0002	523.51	523.52	irreg	cont	3		0	320		Sediment	Interbedding	zsa	zsa			interpreted alpha contact. it is parallel to the drilling
+D	24PMD0002	526.26	526.27	plan	cont	3		15	310		Sediment	Interbedding	zsa	zsa			lithological contact zsp-zsa. Possible bed?
+D	24PMD0002	529.38	529.39	irreg	bed	3		20	310		Sediment	Interbedding	zsa	zsa			lithological contact zsp-zsa. Possible bed?
+D	24PMD0002	530.1	530.11	plan	cont	3		30	165		Sediment	Interbedding	zsa	zsc			contact limestone with metasediment
+D	24PMD0002	770.69	770.7	PlanR	jnt	3		65	120		Sediment	Interbedding	zsc	zsc			
+D	24PMD0002	772.46	772.47	plan	bed	3		20	300		Sediment	Interbedding	zsc	zsc			
+D	24PMD0002	775.26	775.27	undP	jnt	3		45	130		Sediment	Interbedding	zsp	zsp			
+D	24PMD0002	776.22	776.23	irreg	vn	3		20	305		Vein	Vein	zsp	zsa			qz-cb veinlet with same alfa and beta as the bed
+D	24PMD0002	778.19	778.2	plan	bed	3		25	300		Sediment	Interbedding	zsc	zsc			
+D	24PMD0002	786.55	786.56	plan	bed	3		30	305		Sediment	Interbedding	zsa	zsp			close interbedded
+D	24PMD0002	788.46	788.47	irreg	cont	3		20	305		Sediment	Interbedding	zsc	zsa			cont between zsc-zsa similar to like bed
+D	24PMD0002	792.37	792.38	diff	cont	3		25	302		Sediment	Interbedding	zsc	zsc			interbedding in the limestone unit
+D	24PMD0002	795.73	795.74	sharp	cont	3		17	312		Sediment	Interbedding	zsc	zsa			bedding and contact similar orientations 
+D	24PMD0002	796.39	796.4	sharp	vn	3		70	92		Vein	Vein	zsa	zsa			0.5cm thick qtz cb vein with chl infill. 
+D	24PMD0002	799.11	799.12	sharp	vn	3		60	238		Vein	Vein	zsa	zsa			a set of hairline cb veinlets in carbonate + calc silicate altered metasediment
+D	24PMD0002	801.28	801.29	irreg	cont	3		20	312		Sediment	Interbedding	zsc	zsa			irregular very steep pocket of limestone 
+D	24PMD0002	804.51	804.52	sharp	cont	3		30	312		Sediment	Interbedding	zsc	zsa			thin pocket of interbedded zsc bed/contact (same orientation)
+D	24PMD0002	805.75	805.76	planS	jnt	3		57	170		Sediment	Interbedding	zsa	zsa			natural joint fracture in a unaltered metasediment
+D	24PMD0002	810.58	810.59	sharp	vn	3		38	150		Vein	Vein	zsa	zsa			calcium carbonate overprinting alteration and a chlorite salvage veinlet non min$
+D	24PMD0002	811.08	811.09	irreg	cont	3		25	120		Sediment	Interbedding	zsa	zsc			chaotic breccia top contact. Calcite vein is brecciated and folded
+D	24PMD0002	812.53	812.54	smo	cont	3		30	130		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	815.95	815.96	diff	lin	3		17	300		Sediment	Interbedding	zsc	zsc			fine lineation in a fine grained limestone
+D	24PMD0002	816.45	816.46	diff	bed	3		50	105		Sediment	Interbedding	zsc	zsa			bedding orientation changes in that interbedded sequence 
+D	24PMD0002	819.37	819.38	irreg	cont	3		55	270		Sediment	Interbedding	zsa	zsc			pockets of interbedded zsc with psammite 
+D	24PMD0002	821.23	821.24	irreg	vn	3		50	145		Vein	Vein	zsc	zsc			qtz cb cpx veinlet
+D	24PMD0002	822.17	822.18	sharp	bed	3		25	298		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	822.77	822.78	sharp	cont	3		20	295		Sediment	Interbedding	zsa	zsc			thin bed of Pelite with different alteration (~3cm thick) contact
+D	24PMD0002	823.56	823.57	diff	bed	3		25	305		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	828.51	828.52	plan	fr	3		65	102		Sediment	Interbedding	zsc	zsc			common fracture orientation 
+D	24PMD0002	830.28	830.29	plan	vn	3		15	32		Vein	Vein	zsc	zsc			small ~0.5cm thick quartz hm veinlet steep. 
+D	24PMD0002	832.86	832.87	diff	cont	3		25	305		Sediment	Interbedding	zsc	zsa			interbedded zsc and zsa
+D	24PMD0002	836.54	836.55	irreg	vn	3		70	68		Vein	Vein	zsc	zsc			brecciated set of carbonate veinlets 
+D	24PMD0002	836.87	836.88	undS	fr	3		70	30		Sediment	Interbedding	zsc	zsc			strong haematite alteration and brecciated calcite veinlets are abundant 
+D	24PMD0002	838.34	838.35	planS	fr	3		65	72		Sediment	Interbedding	zsc	zsc			fracture in a weakly altered limestone 
+D	24PMD0002	842.06	842.07	planS	fr	3		65	85		Sediment	Interbedding	zsa	zsa			planar smooth joint
+D	24PMD0002	530.25	530.26	plan	bed	3		30	310		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	533.52	533.53	planS	jnt	1		55	260		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	535.3	535.31	irreg	bed	1		30	300		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	537.45	537.46	plan	bed	1		20	300		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	539.21	539.22	plan	flt	1		30	175		Sediment	Interbedding	zsp	zsp			micro fault possible outset?
+D	24PMD0002	542.61	542.62	irreg	vi	1		30	130		Vein	Vein	zsa	zsa			set of veinlets 1mm thickness with similar alpha and beta 541m to 543m
+D	24PMD0002	543.17	543.18	plan	bed	1		40	310		Sediment	Interbedding	zsa	zsc			
+D	24PMD0002	546.31	546.32	plan	bx	1		45	100		Breccia	Vein	zsa	bx			non-mineralised hydrothermal breccia top contact
+D	24PMD0002	546.36	546.37	plan	bx	1		45	100		Breccia	Vein	bx	zsa			non-mineralised hydrothermal breccia bottom contact
+D	24PMD0002	548.75	548.76	plan	vn	3		60	80		Vein	Vein	zsa	zsa			vein cb-amp vein with disseminated garnet
+D	24PMD0002	550.9	550.91	sharp	bed	3		20	320		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	553.62	553.63	plan	fol	3		35	330		Sediment	Interbedding	zsc	zsc			foliation is similar to the bed
+D	24PMD0002	555.22	555.23	anast	vm	3		45	120		Vein	Vein	zsa	zsa			set of 1mm thickness cb-qz veinlets. With similar alfa and beta.
+D	24PMD0002	556.15	556.16	irreg	vi	3		35	325		Vein	Vein	zsa	zsa			small amp stockwork veinlets 1mm to 2mm thickness with irregular texture
+D	24PMD0002	557.23	557.24	irreg	bed	3		35	320		Sediment	Interbedding	zsa	zsc			
+D	24PMD0002	562.39	562.4	plan	bed	3		40	330		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	564.35	564.36	irreg	vi	3		30	335		Vein	Vein	zsa	zsa			ab vein
+D	24PMD0002	567.09	567.1	irreg	vi	3		40	170		Vein	Vein	zsa	zsa			set of 2mm thickness cb-qz veinlets. With similar alfa and beta.
+D	24PMD0002	570.08	570.09	fract	bx	3		20	150		Breccia	Vein	bx	zsa			non-mineralised cpx-ab-hm-cb-grnt breccia 
+D	24PMD0002	570.48	570.49	plan	bed	3		50	335		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	572.41	572.42	irreg	cont	3		40	160		Sediment	Interbedding	zsp	zsc			metasediment contact with limestone
+D	24PMD0002	574.13	574.14	plan	vn	3		50	325		Vein	Vein	zsa	zsa			vein has the similar alpha and beta like bed
+D	24PMD0002	576.86	576.87	plan	bx	3		65	100		Breccia	Vein	zsa	zsa			small hydrothermal breccia with plan cont
+D	24PMD0002	577.8	577.81	plan	vn	3		50	335		Vein	Vein	zsa	zsa			vein has the similar alpha and beta like bed
+D	24PMD0002	581.46	581.47	plan	bed	3		25	325		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	584.02	584.03	anast	va	3		50	130		Vein	Vein	zsa	zsa			anast vein. possible top contact section of set of anast veins 
+D	24PMD0002	585.36	585.37	undP	jnt	3		55	235		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	589.13	589.14	plan	$bx	2		50	150		Breccia	Vein	zsa	zsa			small hydrothermal breccia with top cont
+D	24PMD0002	589.24	589.25	plan	$bx	2		50	150		Breccia	Vein	zsa	zsa			small hydrothermal breccia with bottom cont
+D	24PMD0002	590	590.01	plan	$bx	2		50	105		Breccia	Vein	zsa	zsa			small hydrothermal breccia with top cont
+D	24PMD0002	590.16	590.17	plan	$bx	2		50	105		Breccia	Vein	zsa	zsa			small hydrothermal breccia with bottom cont
+D	24PMD0002	590.2	590.21	irreg	$bx	2		70	110		Breccia	Vein	zsa	zsa			small hydrothermal breccia with top cont
+D	24PMD0002	590.25	590.26	irreg	$bx	2		70	110		Breccia	Vein	zsa	zsa			small hydrothermal breccia with bottom cont
+D	24PMD0002	844.23	844.24	sharp	bed	3		25	285		Sediment	Interbedding	zsa	zsa			altered thin 3cm lens interbedded metasediment
+D	24PMD0002	847.12	847.13	sharp	cont	3		27	302		Sediment	Interbedding	zsa	zsc			top contact of psammite and pink limestone 
+D	24PMD0002	847.6	847.61	sharp	cont	3		27	290		Sediment	Interbedding	zsc	zsa			bottom contact of a pocket of pink limestone 
+D	24PMD0002	849.41	849.42	sharp	cont	3		22	302		Sediment	Interbedding	zsa	zsc			sharp contact of unaltered psammite with lightly altered impure limestone
+D	24PMD0002	679.9	679.91	irreg	vn	3		60	340		Vein	Vein	zsa	zsa			qz-cb vein
+D	24PMD0002	680.5	680.51	sharp	cont	3		35	320		Sediment	Interbedding	zsa	zsa			metasediment contact with hydrothermal breccia and anast cb veins bottom
+D	24PMD0002	683.39	683.4	irreg	vn	3		60	70		Vein	Vein	zsa	zsa			cb-qz vein amp in fract and hm in selvedge
+D	24PMD0002	688.07	688.08	plan	vn	3		70	20		Vein	Vein	zsa	zsa			cb-qz vein amp in fract and hm in selvedge
+D	24PMD0002	689.66	689.67	sharp	bx	3		60	140		Vein	Vein	zsa	zsa			qz-cb vein
+D	24PMD0002	692.06	692.07	sharp	bx	3		35	130		Breccia	Vein	zsa	zsa			cal-sil breccia top contact
+D	24PMD0002	692.11	692.12	sharp	bx	3		35	130		Breccia	Vein	zsa	zsa			cal-sil breccia bottom contact
+D	24PMD0002	694.84	694.85	irreg	bed	3		5	305		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	697.51	697.52	planP	jnt	3		80	145		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	703.7	703.71	sharp	vn	3		20	70		Vein	Vein	zsa	zsa			qz-cb vein
+D	24PMD0002	705.04	705.05	irreg	bed	3		10	300		Sediment	Interbedding	zsp	zsc			
+D	24PMD0002	706.97	706.98	plan	vn	3		40	135		Vein	Vein	zsc	zsc			cb vein
+D	24PMD0002	710.57	710.58	diff	cont	3		60	305		Sediment	Interbedding	zsc	zsp			diffuse contact between cb-zsp. Interpreted alpha and beta
+D	24PMD0002	714.4	714.41	plan	bed	3		25	280		Sediment	Interbedding	zsp	zsc			
+D	24PMD0002	719.61	719.62	plan	fol	3		35	270		Sediment	Interbedding	zsc	zsc			
+D	24PMD0002	721.76	721.77	plan	cont	3		35	270		Sediment	Interbedding	zsc	zsc			metasediment contact with limestone
+D	24PMD0002	724.79	724.8	plan	bed	3		20	280		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	727.75	727.76	planS	jnt	1		80	150		Sediment	Interbedding	zsp	zsp			
+D	24PMD0002	730.9	730.91	und	bed	1		15	305		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	732.7	732.71	irreg	vn	1		15	310		Vein	Vein	zsc	zsp			
+D	24PMD0002	733.64	733.65	plan	vn	1		55	130		Vein	Vein	zsp	hbx			
+D	24PMD0002	733.78	733.79	irreg	bx	1		50	120		Breccia	Vein	zsa	zsp			hydrothermal breccia top contact
+D	24PMD0002	734.32	734.33	irreg	bx	3		65	120		Breccia	Vein	zsa	zsp			hydrothermal breccia bottom contact
+D	24PMD0002	735.08	735.09	irreg	bx	1		50	120		Breccia	Vein	zsa	zsp			hydrothermal breccia top contact
+D	24PMD0002	735.26	735.27	irreg	bx	3		75	150		Breccia	Vein	zsa	zsp			hydrothermal breccia bottom contact
+D	24PMD0002	738.32	738.33	irreg	vn	3		50	110		Vein	Vein	zsp	zsp			set of veinlets 1mm thickness with similar alpha and beta from 738.1m to 738.5m
+D	24PMD0002	743.6	743.61	irreg	bed	3		20	290		Sediment	Interbedding	zsc	zsp			
+D	24PMD0002	747.5	747.51	irreg	bed	3		30	300		Sediment	Interbedding	zsp	zsp			
+D	24PMD0002	748.47	748.48	fract	jnt	3		65	110		Sediment	Interbedding	zsp	zsc			
+D	24PMD0002	749.9	749.91	plan	fol	3		30	290		Sediment	Interbedding	zsp	zsp			
+D	24PMD0002	752.96	752.97	plan	bed	3		30	290		Sediment	Interbedding	zsc	zsp			
+D	24PMD0002	754.6	754.61	planS	jnt	3		50	100		Sediment	Interbedding	zsc	zsp			
+D	24PMD0002	759.19	759.2	plan	bed	3		20	310		Sediment	Interbedding	zsc	zsp			foliation back to 300 after the broken core from 755.3m to 755.8m
+D	24PMD0002	762.1	762.11	plan	bed	3		25	310		Sediment	Interbedding	zsp	zsp			
+D	24PMD0002	763.8	763.81	PlanR	jnt	3		70	80		Sediment	Interbedding	zsp	zsc			
+D	24PMD0002	764.25	764.26	plan	fol	3		40	320		Sediment	Interbedding	zsp	zsc			
+D	24PMD0002	767.2	767.21	plan	bed	3		20	305		Sediment	Interbedding	zsa	zsp			
+D	24PMD0002	592.54	592.55	plan	bed	2		30	305		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	594.07	594.08	plan	vn	2		50	320		Vein	Vein	zsa	zsa			
+D	24PMD0002	596.97	596.98	anast	va	2		35	125		Vein	Vein	zsa	zsa			anast vein. possible top contact section of set of anast veins 
+D	24PMD0002	598.85	598.86	und	bed	3		15	310		Sediment	Interbedding	zsa	zsp			
+D	24PMD0002	601.85	601.86	sharp	vn	3		80	125		Vein	Vein	zsc	zsc			cb vein orthogonal to the drilling
+D	24PMD0002	602.54	602.55	sharp	vn	3		70	60		Vein	Vein	zsc	zsc			cb vein
+D	24PMD0002	603.21	603.22	plan	bx	3		50	120		Breccia	Vein	zsa	zsa			hydrothermal breccia with top cont
+D	24PMD0002	604.39	604.4	plan	bx	3		80	110		Breccia	Vein	zsa	zsa			hydrothermal breccia with bottom cont
+D	24PMD0002	604.51	604.52	plan	$vn	3		45	310		Breccia	Vein	zsa	zsa			hydrothermal mineralised breccia vein
+D	24PMD0002	606.28	606.29	plan	vn	3		80	120		Vein	Vein	zsa	zsa			amp vein orthogonal to the drilling
+D	24PMD0002	607.56	607.57	irreg	$vn	3		45	145		Vein	Vein	zsa	zsa			mineralised hydrothermal vein
+D	24PMD0002	612.17	612.18	plan	$vn	3		20	15		Vein	Vein	zsa	zsa			mineralised hydrothermal
+D	24PMD0002	617.04	617.05	und	vn	3		80	160		Vein	Vein	zsa	zsa			vein related with strong stockwork top
+D	24PMD0002	617.12	617.13	und	vn	3		80	160		Vein	Vein	zsa	zsa			vein related with strong stockwork bottom
+D	24PMD0002	617.74	617.75	irreg	vn	3		80	305		Vein	Vein	zsa	zsa			vein related with strong stockwork bottom
+D	24PMD0002	619.6	619.61	planP	jnt	3		65	140		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	620.46	620.47	planS	jnt	3		65	210		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	624.09	624.1	plan	bed	3		10	325		Sediment	Interbedding	zsc	zsp			
+D	24PMD0002	624.91	624.92	sharp	flt	3		80	160		Sediment	Interbedding	zsa	zsp			fault structure moving blocks apart. Non traceable
+D	24PMD0002	627.31	627.32	irreg	$vn	3		30	330		Vein	Vein	zsa	zsa			mineralised hydrothermal vein
+D	24PMD0002	634.2	634.21	plan	bed	3		25	315		Sediment	Interbedding	zsa	zsp			
+D	24PMD0002	637.5	637.51	undR	jnt	3		75	340		Sediment	Interbedding	zsa	zsp			
+D	24PMD0002	644.27	644.28	anast	va	3		65	190		Vein	Vein	zsa	zsa			qz-cb anastomosing
+D	24PMD0002	645.41	645.42	plan	bed	3		35	305		Sediment	Interbedding	zsa	zsp			
+D	24PMD0002	648.4	648.41	irreg	vi	3		55	150		Vein	Vein	zsa	zsa			qz-cb irregular vein
+D	24PMD0002	648.7	648.71	irreg	cont	3		45	310		Sediment	Interbedding	zsp	zsc			contact limestone with metasediment. Similar as the bed
+D	24PMD0002	652.14	652.15	plan	bed	3		15	320		Sediment	Interbedding	zsp	zsa			
+D	24PMD0002	656.7	656.71	planP	jnt	3		80	210		Sediment	Interbedding	zsp	zsp			
+D	24PMD0002	661.52	661.53	PlanR	jnt	3		80	90		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	663.4	663.41	irreg	cont	3		35	300		Sediment	Interbedding	zsp	zsp			alteration contact. Possible vein?
+D	24PMD0002	666.31	666.32	plan	cont	3		5	310		Sediment	Interbedding	zsp	zsc			contact limestone with metasediment. Similar as the bed
+D	24PMD0002	670.96	670.97	plan	vn	3		65	50		Vein	Vein	zsa	zsa			cb-amp irregular vein plan contact
+D	24PMD0002	672.05	672.06	irreg	vn	3		35	240		Vein	Vein	zsa	zsa			qz-cb vein
+D	24PMD0002	673.87	673.88	irreg	bed	3		10	320		Sediment	Interbedding	zsa	zsa			
+D	24PMD0002	678.9	678.91	irreg	vn	3		10	320		Vein	Vein	zsa	zsa			qz-cb vein
+D	24PMD0002	679.45	679.46	sharp	cont	3		60	340		Sediment	Interbedding	zsa	zsa			metasediment contact with hydrothermal breccia and anast cb veins top
