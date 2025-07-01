@@ -210,10 +210,10 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
         output_html_path (str, optional): Path to save the interactive HTML plot.
                                           If None, displays in environment.
     """
-    core_height = 1.2
-    segment_width = 5.5
+    core_height = 1.5
+    segment_width = 7 # Increased width further for more padding
     row_spacing = 3.5
-    max_segments_per_row = 6
+    max_segments_per_row = 8
 
     num_rows = int(np.ceil(len(schematic_segments) / max_segments_per_row))
     fig_height_scale_factor = 100
@@ -282,7 +282,7 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
         annotations.append(
             go.layout.Annotation(
                 x=x_start + segment_width / 2,
-                y=y_center + core_height / 2 + 0.25,
+                y=y_center + core_height / 2 + 0.40,
                 text=segment['type'],
                 showarrow=False,
                 font=dict(size=12, color=label_color_top, family="Arial", weight="bold")
@@ -290,10 +290,10 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
         )
 
         # --- Depth Labels ---
-        # Always label start_depth on the left
+        # Adjusted x positions for more padding
         annotations.append(
             go.layout.Annotation(
-                x=x_start,
+                x=x_start + 0.3, # Increased padding from left edge
                 y=y_center - core_height / 2 - 0.25,
                 text=f"{segment['start_depth']:.1f}m",
                 showarrow=False,
@@ -309,7 +309,7 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
         if is_last_in_row or is_last_segment_overall:
             annotations.append(
                 go.layout.Annotation(
-                    x=x_start + segment_width,
+                    x=x_start + segment_width - 0.3, # Increased padding from right edge
                     y=y_center - core_height / 2 - 0.25,
                     text=f"{segment['end_depth']:.1f}m",
                     showarrow=False,
@@ -380,9 +380,9 @@ def create_plotly_diagram(schematic_segments, hole_id, output_html_path=None):
                 )
 
         # Update counters for layout
-        segment_in_row_count = segment_in_row_count + 1 # Changed from += to explicit + 1
+        segment_in_row_count = segment_in_row_count + 1
         if segment_in_row_count >= max_segments_per_row:
-            current_row = current_row + 1 # Changed from += to explicit + 1
+            current_row = current_row + 1
             segment_in_row_count = 0
 
     # Add all hover traces to the figure
